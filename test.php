@@ -1,7 +1,16 @@
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Example</title>
+</head>
+<body>
+</html>
+
+
 <?php
 
 //*********************************************************        ewoks      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=73823');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=73823');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -23,7 +32,7 @@ $mas = $mas + array($k=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$k;
 //*********************************************************        ew0ks      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=74310');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=74310');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -44,7 +53,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewoki      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=85398');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=85398');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -65,7 +74,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ew0ki      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=117207');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=117207');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -86,7 +95,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewoky      ***********************************************************************************
-/* $file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=115101');
+/* $file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=115101');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -107,7 +116,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k; */
 //*********************************************************        ew0ky      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=107757');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=107757');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -128,7 +137,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewok5      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=182537');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=182537');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -149,7 +158,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewokc      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=90800878d3410b8b2ddfcfe3512f6bc5&fields=abbreviation,members.account_name,members.role&clan_id=122268');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=122268');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -171,7 +180,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
 $v=$v+$k;
 
 
-$link = mysql_connect('dbHost', 'user', 'password') //Данные для подключения к базе форума
+$link = mysql_connect('localhost', 'test', '123456789') //Данные для подключения к базе форума
     or die('Не удалось соединиться: ' . mysql_error());
 mysql_select_db('dbase') or die('Не удалось выбрать базу данных');
 //Обнуляем поля Звание и Племя
