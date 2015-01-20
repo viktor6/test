@@ -265,7 +265,7 @@ case "recruit":
     $nzva = 11;
     break;
 case "private":
-    $nzva = 17;
+    $nzva = 14;
     break;
 case "junior_officer":
    $nzva = 27;
