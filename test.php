@@ -158,7 +158,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewokc      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=122268');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=71900');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -295,7 +295,7 @@ case "leader":
 //Создаем массив дополнительных групп
 $msgr = explode(",", $qsgr); //Массив дополнительных групп
 //создаем массив званий
-$uzva = array("34", "16", "17", "27", "21", "19", "28", "20", "35", "33", "8"); //Массив званий
+$uzva = array("10", "11", "17", "27", "21", "19", "28", "20", "35", "33", "8"); //Массив званий
 //Получаем текущее звание и строку дополнительных групп без звания
 $dsgr = ""; //Строка дополнительных групп
 $tzva = ""; //Текущее звание на форуме
