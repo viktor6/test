@@ -211,10 +211,10 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
         }
         if ($q == 2) {
         $qgr = $col_value;
-                if ($qgr == '40') { //Доверенные
+                if ($qgr == '13') { //Доверенные
                     $qdov = 1;
                 }
-                if ($qgr == '29') { //Ушедшие в другие леса (вышедшие)
+                if ($qgr == '5') { //Ушедшие в другие леса (вышедшие)
                     $qdov = 1;
                 }
         }
@@ -236,22 +236,22 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 //Племена
 switch ($mple) {
 case "EWOKS":
-    $nple = 5;
-    break;
-case "EW0KS":
     $nple = 6;
     break;
-case "EWOKI":
+case "EW0KS":
     $nple = 7;
     break;
+case "EWOKI":
+    $nple = 8;
+    break;
 case "EW0KY":
-   $nple = 26;
+   $nple = 9;
     break;
 case "EWOK5":
-    $nple = 39;
+    $nple = 12;
     break;
 case "EWOKC":
-   $nple = 45;
+   $nple = 13;
     break;  
 //default:
 //    $nple = 2;
@@ -259,10 +259,10 @@ case "EWOKC":
 //Звания
 switch ($mzva) {
 case "reservist":
-    $nzva = 34;
+    $nzva = 10;
     break;
 case "recruit":
-    $nzva = 16;
+    $nzva = 11;
     break;
 case "private":
     $nzva = 17;
@@ -347,7 +347,7 @@ $tsgr = $dsgr;
         if ($qgr <> 2) {
             if ($mple == "") {
                 //Если племя пустое, то ставим ушедшие в другие леса, убираем должность  
-                $querydate = "UPDATE xf_user SET user_group_id='29', secondary_group_ids='' WHERE user_id='$qid'";
+                $querydate = "UPDATE xf_user SET user_group_id='5', secondary_group_ids='' WHERE user_id='$qid'";
                 $resultdate = mysql_query($querydate) or die('Запрос не удался: ' . mysql_error());      
                 echo 'Nik - '.$qnik.' NikWOT - '.$mnik.' Осн.гр - '.$qgr.' Племя - '.$nple.' Звание wot - '.$nzva.' Звание фор'.$tzva.' Ушедшие...';
                 echo '</br>';
