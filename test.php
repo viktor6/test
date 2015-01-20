@@ -182,7 +182,7 @@ $v=$v+$k;
 
 $link = mysql_connect('localhost', 'test', '123456789') //Данные для подключения к базе форума
     or die('Не удалось соединиться: ' . mysql_error());
-mysql_select_db('dbase') or die('Не удалось выбрать базу данных');
+mysql_select_db('xenforo') or die('Не удалось выбрать базу данных');
 //Обнуляем поля Звание и Племя
 $zv="";
 $pl="";
