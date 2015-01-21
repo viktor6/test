@@ -1,5 +1,5 @@
 <?
-define('URL','http://test.plusnet.ks.ua/test_wg.php');//адрес по которому доступен данный скрипт
+define('URL','http://test.plusnet.ks.ua/test/test_wg.php');//адрес по которому доступен данный скрипт
 define('APPLICATION_ID','demo');//application_id приложения
 if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
     $context = stream_context_create(
