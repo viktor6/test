@@ -78,7 +78,7 @@
 <br><br><center>
 <div id="page-title">
 		<div class="inner">
-		<h1>Удаление зарегестрированных ников</h1>
+		<h1>Список Клиентов</h1>
 		</div>
 	</div>
 
@@ -90,8 +90,8 @@ echo "<table cellspacing='1' align='center' width='600' class='listtable'>
 <tr>
 <td width='3%' class='listtable_top'></td>
 <td width='40%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Имя</b></font></td>
-<td width='25%' class='listtable_top'><font color='#FFFFFF' size='2'><b>IP</b></font></td>
-<td width='30%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Вход</b></font></td>
+<td width='25%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Входов</b></font></td>
+<td width='30%' class='listtable_top'><font color='#FFFFFF' size='2'><b>IP</b></font></td>
 <td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Время</b></font></td>
 </tr>";
 
