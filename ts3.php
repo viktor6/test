@@ -8,7 +8,7 @@
             or die("Ошибка  : " . mysqli_connect_error()); 
   
 
-    $sql = 'SELECT * FROM `clients`';
+    $sql = 'SELECT * FROM `clients` WHERE server_id= \'1\'';
     $sql_region_ip = mysqli_query($link, $sql);
      $color[0]='#e0e0e0';
 $color[1]='#eeeeee';
@@ -19,7 +19,7 @@ $i=0;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>Регистрация ника =Plusnet=</title>
+<title>Список Клиентов TS3</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="" />
@@ -77,7 +77,7 @@ $i=0;
 <br><br><center>
 <div id="page-title">
 		<div class="inner">
-		<h1>Список Клиентов</h1>
+		<h1>Список Клиентов TS3</h1>
 		</div>
 	</div>
 
@@ -89,17 +89,17 @@ echo "<table cellspacing='1' align='center' width='600' class='listtable'>
 <tr>
 <td width='30%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Имя</b></font></td>
 <td width='17%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Вход</b></font></td>
-<td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Дата</b></font></td>
-<td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Время</b></font></td>
+<td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>IP</b></font></td>
+<td width='20%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Дата</b></font></td>
 </tr><form name='delete' method='post' action='admin.php'>";
 
 while ($row = mysqli_fetch_assoc($sql_region_ip)) {
 
 echo "<tr  bgcolor='$color[$i]'>
     	<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'><font color='#8b0000'><b>".$row['client_nickname']."</b></font></td>
-		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".($row['client_totalconnections'] ? '<font color="#0000FF"><b>Активен</b></font>' : '<font color="#FF0000"><b>Не активен</b></font>')."</td>
+		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".$row['client_totalconnections']."</td>
 		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".$row['client_lastip']."</td>
-		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".date('H:i:s' ,$row['client_lastconnected'])."</td>
+		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".date('d.m.Y-H:i:s' ,$row['client_lastconnected'])."</td>
 	</tr>";
 	$i=1-$i;
 	//var_dump($row[id]);
