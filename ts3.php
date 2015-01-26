@@ -10,7 +10,9 @@
 
     $sql = 'SELECT * FROM `clients`';
     $sql_region_ip = mysqli_query($link, $sql);
-     
+     $color[0]='#e0e0e0';
+$color[1]='#eeeeee';
+$i=0;
 
 ?>
 
@@ -60,17 +62,14 @@
 <body>
 <div id='container'>
 <table border='0' cellpadding='0' cellspacing='0' width=100%>
-     <tr>
-          <td background='http://cs.plusnet.ks.ua/namereg/images/header-bg.png' align='left'><p align='center'><a href='/namereg'><img src='http://cs.plusnet.ks.ua/namereg/images/header-logo.jpg' border='0'></a></td>
-     </tr>
+     <tr>  
+   </tr>
 </table>
 <div id='header-menu'>
 <ul>
      <li class="first"><a href="/"style="text-decoration:;">На главную</a></li>
 
-     <li><a href="/forum/index.php?s=&showtopic=978"style="text-decoration;">Обсудить на форуме</a></li>
-     <li><a href="http://stats.cs.datasvit.ks.ua/">Статистика игроков</a></li>
-    <li><a href="http://ban.cs.datasvit.ks.ua">Бан лист</a></li>
+     
 	
 </ul>
 </div>
@@ -88,28 +87,27 @@
 
 echo "<table cellspacing='1' align='center' width='600' class='listtable'>
 <tr>
-<td width='3%' class='listtable_top'></td>
-<td width='40%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Имя</b></font></td>
-<td width='25%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Входов</b></font></td>
-<td width='30%' class='listtable_top'><font color='#FFFFFF' size='2'><b>IP</b></font></td>
+<td width='30%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Имя</b></font></td>
+<td width='17%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Вход</b></font></td>
+<td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Дата</b></font></td>
 <td width='10%' class='listtable_top'><font color='#FFFFFF' size='2'><b>Время</b></font></td>
-</tr>";
+</tr><form name='delete' method='post' action='admin.php'>";
 
 while ($row = mysqli_fetch_assoc($sql_region_ip)) {
 
-echo "<tr>
-    	
-	<td class='listtable_1' border='0' align='left'><font color='#8b0000'><b>".$row['client_nickname']."</b></font></td>
-        <td class='listtable_1' border='0' align='left'><font color='#8b0000'><b>".$row['client_totalconnections']."</b></font></td>
-	<td class='listtable_1' border='0' align='left'><font color='#8b0000'><b>".$row['client_lastip']."</b></font></td>
-	<td class='listtable_1' border='0' align='left'>".date('d.m.Y' ,$row['client_lastconnected'])."</td>
+echo "<tr  bgcolor='$color[$i]'>
+    	<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'><font color='#8b0000'><b>".$row['client_nickname']."</b></font></td>
+		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".($row['client_totalconnections'] ? '<font color="#0000FF"><b>Активен</b></font>' : '<font color="#FF0000"><b>Не активен</b></font>')."</td>
+		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".$row['client_lastip']."</td>
+		<td class='listtable_1' border='0' bgcolor='$color[$i]' align='left'>".date('H:i:s' ,$row['client_lastconnected'])."</td>
 	</tr>";
-	
-echo "</table><br><br>";
-
+	$i=1-$i;
+	//var_dump($row[id]);
+//die;
 }
-
+echo "</table>";
 ?>
+
 <br><br><br><br><br>
 </div>
 <div id='footer'>
@@ -118,8 +116,7 @@ echo "</table><br><br>";
           <td class='footer' width='10%'>
 
           </td>
-          <td class='footer' width='80%' align='center'>Регистрация ников игроков =Plusnet= C-S 1.6 Servers</td>
-          <td class='footer' width='10%' align='right'><a href='mailto:leopard@planar.bz'><img src="../images/leopard.png" border="0"></a></td>
+          
      </tr>
 </table>
 </div>
