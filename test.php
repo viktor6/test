@@ -5,12 +5,10 @@
 </head>
 <body>
 </html>
-
-
 <?php
 
-//*********************************************************        ewoks      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=73823');
+//*********************************************************        UKR-B      ***********************************************************************************
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=71900');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -31,8 +29,8 @@ $d=substr($c[1], 0, strlen($c[1])-1);
 $mas = $mas + array($k=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$k;
-//*********************************************************        ew0ks      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=74310');
+//*********************************************************        WG      ***********************************************************************************
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=1');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -52,8 +50,8 @@ $d=substr($c[1], 0, strlen($c[1])-1);
 $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
-//*********************************************************        ewoki      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=85398');
+//*********************************************************        IPL      ***********************************************************************************
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=107400');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -73,8 +71,8 @@ $d=substr($c[1], 0, strlen($c[1])-1);
 $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
-//*********************************************************        ew0ki      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=117207');
+//*********************************************************        _KTL_      ***********************************************************************************
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=57742');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -115,8 +113,8 @@ $d=substr($c[1], 0, strlen($c[1])-1);
 $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k; */
-//*********************************************************        ew0ky      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=107757');
+//*********************************************************        UA_GT      ***********************************************************************************
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=105123');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -158,7 +156,7 @@ $mas = $mas + array($k+$v=>array('0'=>$d,'1'=>$c[0],'2'=>$teg));
   }
 $v=$v+$k;
 //*********************************************************        ewokc      ***********************************************************************************
-$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=71900');
+$file=file_get_contents('http://api.worldoftanks.ru/wot/clan/info/?application_id=demo&fields=abbreviation,members.account_name,members.role&clan_id=122268');
 $strk = str_replace("\"", "", $file);
 $strv = str_replace("abbreviation:", "*", $strk);
 $strr = str_replace("role:", "#", $strv);
@@ -211,10 +209,10 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
         }
         if ($q == 2) {
         $qgr = $col_value;
-                if ($qgr == '13') { //Доверенные
+                if ($qgr == '22') { //Доверенные
                     $qdov = 1;
                 }
-                if ($qgr == '5') { //Ушедшие в другие леса (вышедшие)
+                if ($qgr == '23') { //Ушедшие в другие леса (вышедшие)
                     $qdov = 1;
                 }
         }
@@ -235,67 +233,70 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 //Меняем названия на ID групп
 //Племена
 switch ($mple) {
-case "EWOKS":
+case "UKR-B":
+    $nple = 5;
+    break;
+case "WG":
     $nple = 6;
     break;
-case "EW0KS":
+case "IPL":
     $nple = 7;
     break;
-case "EWOKI":
-    $nple = 8;
+case "_KTL_":
+   $nple = 8;
     break;
-case "EW0KY":
-   $nple = 9;
+case "UA_GT":
+    $nple = 9;
     break;
 case "EWOK5":
-    $nple = 12;
+   $nple = 24;
     break;
 case "EWOKC":
-   $nple = 13;
-    break;  
+   $nple = 10;
+    break;	
 //default:
 //    $nple = 2;
 }
 //Звания
 switch ($mzva) {
 case "reservist":
-    $nzva = 10;
-    break;
-case "recruit":
     $nzva = 11;
     break;
+case "recruit":
+    $nzva = 12;
+    break;
 case "private":
-    $nzva = 14;
+    $nzva = 13;
     break;
 case "junior_officer":
-   $nzva = 27;
+   $nzva = 14;
     break;
 case "diplomat":
-    $nzva = 21;
+    $nzva = 15;
     break;
 case "verbovshik":
-   $nzva = 19;
+   $nzva = 16;
     break;  
 case "treasurer":
-    $nzva = 28;
+    $nzva = 17;
     break;
 case "commander":
-    $nzva = 20;
+    $nzva = 18;
     break;
 case "personnel_officer":
-   $nzva = 35;
+   $nzva = 19;
     break;
 case "miniking":
-    $nzva = 33;
+    $nzva = 20;
     break;  
 case "leader":
-    $nzva = 8;
+    $nzva = 21;
     break;      
 }  
 //Создаем массив дополнительных групп
 $msgr = explode(",", $qsgr); //Массив дополнительных групп
 //создаем массив званий
-$uzva = array("10", "11", "17", "27", "21", "19", "28", "20", "35", "33", "8"); //Массив званий
+$uzva = array("11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"); //Массив званий
 //Получаем текущее звание и строку дополнительных групп без звания
 $dsgr = ""; //Строка дополнительных групп
 $tzva = ""; //Текущее звание на форуме
@@ -347,7 +348,7 @@ $tsgr = $dsgr;
         if ($qgr <> 2) {
             if ($mple == "") {
                 //Если племя пустое, то ставим ушедшие в другие леса, убираем должность  
-                $querydate = "UPDATE xf_user SET user_group_id='5', secondary_group_ids='' WHERE user_id='$qid'";
+                $querydate = "UPDATE xf_user SET user_group_id='23', secondary_group_ids='' WHERE user_id='$qid'";
                 $resultdate = mysql_query($querydate) or die('Запрос не удался: ' . mysql_error());      
                 echo 'Nik - '.$qnik.' NikWOT - '.$mnik.' Осн.гр - '.$qgr.' Племя - '.$nple.' Звание wot - '.$nzva.' Звание фор'.$tzva.' Ушедшие...';
                 echo '</br>';
