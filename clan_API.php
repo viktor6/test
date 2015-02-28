@@ -3,7 +3,7 @@ define('API_URL', 'http://api.worldoftanks.ru/');
 define('API_VERSION', 'wot');
 define('CLANINFO_METHOD', API_URL.API_VERSION.'/clan/info/');
 define('APPLICATION_ID', 'demo');
-define('CLAN_ID', '1');
+define('CLAN_ID', '0');
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, CLANINFO_METHOD . "?application_id=" . APPLICATION_ID . "&clan_id=" . CLAN_ID);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
