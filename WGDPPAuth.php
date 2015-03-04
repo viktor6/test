@@ -56,8 +56,31 @@ if(empty($_GET['status'])){//генерируем ссылку и перенаправ€ем пользовател€
             $expires_at=$data[data][expires_at];
             $account_id=$data[data][account_id];
             //здесь вам нужно установить пользователю куки, записать его токен в Ѕƒ, сделать все то, что сочтете нужным.
-            exit('Ёто пользователь с id <b>'.$account_id.'</b><br />“окен <b>'.$access_token.'</b>, он подтвержден и действует до <b>'.date("d.m.Y H:i:s",$expires_at).'</b>');
-        }else{
+            //exit('Ёто пользователь с id <b>'.$account_id.'</b><br />“окен <b>'.$access_token.'</b>, он подтвержден и действует до <b>'.date("d.m.Y H:i:s",$expires_at).'</b>');
+        
+		///////////“ело скрипта
+
+                 //ѕолучение общей статистики по бо€м (метод account/info)
+                 $urlStat = "https://api.worldoftanks.ru/wot/account/info/?application_id=" . APPLICATION_ID . "&account_id=$id";
+                 $curl = curl_init();
+         curl_setopt($curl, CURLOPT_URL, $urlStat);
+		 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+                $resultStat = json_decode(curl_exec($curl), true);
+                 foreach($resultStat['data'] as $key => $valueInfo){
+                                            /* ќпредел€ем общее количество побед
+                                            «начение всех параметров можно изучить в документации к методу account/info
+                                            https://ru.wargaming.net/developers/api_reference/wot/account/info/            
+                                            */
+								
+			echo "  <b>Account id:</b> " . $valueInfo['account_id'] . "<br/>";
+            echo "  <b>Nickname:</b> " . $valueInfo['nickname'] . "<br/>";
+			echo "  <b> редиты :</b> " . $valueInfo['private']['credits'] . "<br/>";
+			echo "  <b>ћаксимальный урон за бой :</b> " . $valueInfo['statistics']['max_damage'] . "<br/>";
+        }
+		/////////////////////
+		
+		}else{
             exit('access_token не подтвержден');
         }
     }
