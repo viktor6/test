@@ -1,7 +1,7 @@
 <?php
-define('URL','http://localhost/WGDPPAuth.php');//адрес по которому доступен данный скрипт
-define('APPLICATION_ID','42f70f94f175efd8c5a9a6075afaee88');//application_id приложения
-if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
+define('URL','http://localhost/WGDPPAuth.php');//Р°РґСЂРµСЃ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ РґРѕСЃС‚СѓРїРµРЅ РґР°РЅРЅС‹Р№ СЃРєСЂРёРїС‚
+define('APPLICATION_ID','42f70f94f175efd8c5a9a6075afaee88');//application_id РїСЂРёР»РѕР¶РµРЅРёСЏ
+if(empty($_GET['status'])){//РіРµРЅРµСЂРёСЂСѓРµРј СЃСЃС‹Р»РєСѓ Рё РїРµСЂРµРЅР°РїСЂР°РІСЏРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
     $context = stream_context_create(
         array('http' =>
             array(
@@ -23,17 +23,17 @@ if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
         header ('Location: '.$data['data']['location']);
         exit();
     }else{
-        exit('Не удалось получить ссылку для перенаправления.');
+        exit('РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ СЃСЃС‹Р»РєСѓ РґР»СЏ РїРµСЂРµРЅР°РїСЂР°РІР»РµРЅРёСЏ.');
     }
-}elseif(isset($_GET['status']) && isset($_GET['access_token']) && isset($_GET['nickname']) && isset($_GET['account_id']) && isset($_GET['expires_at'])){//если пользователь попал на страницу с параметрами, которые устанавливает метод auth/login
+}elseif(isset($_GET['status']) && isset($_GET['access_token']) && isset($_GET['nickname']) && isset($_GET['account_id']) && isset($_GET['expires_at'])){//РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РїРѕРїР°Р» РЅР° СЃС‚СЂР°РЅРёС†Сѓ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё, РєРѕС‚РѕСЂС‹Рµ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РјРµС‚РѕРґ auth/login
     if($_GET['status']!="ok"){
         $error_code=500;
         if(preg_match('/^[0-9]+$/u', $_GET['code'])){
             $error_code=$_GET['code'];
         }
-        exit("Ошибка авторизации. Код ошибки: $error_code");
+        exit("РћС€РёР±РєР° Р°РІС‚РѕСЂРёР·Р°С†РёРё. РљРѕРґ РѕС€РёР±РєРё: $error_code");
     }elseif($_GET[expires_at]<time()){
-        exit("Ошибка авторизации. Срок действия access_token истек.");
+        exit("РћС€РёР±РєР° Р°РІС‚РѕСЂРёР·Р°С†РёРё. РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ access_token РёСЃС‚РµРє.");
     }else{
         $context = stream_context_create(
             array('http' =>
@@ -50,17 +50,17 @@ if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
                 )
             )
         );
-        $data=json_decode(@file_get_contents('https://api.worldoftanks.ru/wot/auth/prolongate/', false, $context),true);//подтверждаем правдивость полученных параметров
+        $data=json_decode(@file_get_contents('https://api.worldoftanks.ru/wot/auth/prolongate/', false, $context),true);//РїРѕРґС‚РІРµСЂР¶РґР°РµРј РїСЂР°РІРґРёРІРѕСЃС‚СЊ РїРѕР»СѓС‡РµРЅРЅС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ
         if($data['status']=="ok"){
             $access_token=$data[data][access_token];
             $expires_at=$data[data][expires_at];
             $account_id=$data[data][account_id];
-            //здесь вам нужно установить пользователю куки, записать его токен в БД, сделать все то, что сочтете нужным.
-            //exit('Это пользователь с id <b>'.$account_id.'</b><br />Токен <b>'.$access_token.'</b>, он подтвержден и действует до <b>'.date("d.m.Y H:i:s",$expires_at).'</b>');
+            //Р·РґРµСЃСЊ РІР°Рј РЅСѓР¶РЅРѕ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РєСѓРєРё, Р·Р°РїРёСЃР°С‚СЊ РµРіРѕ С‚РѕРєРµРЅ РІ Р‘Р”, СЃРґРµР»Р°С‚СЊ РІСЃРµ С‚Рѕ, С‡С‚Рѕ СЃРѕС‡С‚РµС‚Рµ РЅСѓР¶РЅС‹Рј.
+            //exit('Р­С‚Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ id <b>'.$account_id.'</b><br />РўРѕРєРµРЅ <b>'.$access_token.'</b>, РѕРЅ РїРѕРґС‚РІРµСЂР¶РґРµРЅ Рё РґРµР№СЃС‚РІСѓРµС‚ РґРѕ <b>'.date("d.m.Y H:i:s",$expires_at).'</b>');
         
-		///////////Тело скрипта
+		///////////РўРµР»Рѕ СЃРєСЂРёРїС‚Р°
 
-                 //Получение общей статистики по боям (метод account/info)
+                 //РџРѕР»СѓС‡РµРЅРёРµ РѕР±С‰РµР№ СЃС‚Р°С‚РёСЃС‚РёРєРё РїРѕ Р±РѕСЏРј (РјРµС‚РѕРґ account/info)
                  $urlStat = "https://api.worldoftanks.ru/wot/account/info/?application_id=" . APPLICATION_ID . "&account_id=$id";
                  $curl = curl_init();
          curl_setopt($curl, CURLOPT_URL, $urlStat);
@@ -68,20 +68,20 @@ if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
          curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
                 $resultStat = json_decode(curl_exec($curl), true);
                  foreach($resultStat['data'] as $key => $valueInfo){
-                                            /* Определяем общее количество побед
-                                            Значение всех параметров можно изучить в документации к методу account/info
+                                            /* РћРїСЂРµРґРµР»СЏРµРј РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР±РµРґ
+                                            Р—РЅР°С‡РµРЅРёРµ РІСЃРµС… РїР°СЂР°РјРµС‚СЂРѕРІ РјРѕР¶РЅРѕ РёР·СѓС‡РёС‚СЊ РІ РґРѕРєСѓРјРµРЅС‚Р°С†РёРё Рє РјРµС‚РѕРґСѓ account/info
                                             https://ru.wargaming.net/developers/api_reference/wot/account/info/            
                                             */
 								
 			echo "  <b>Account id:</b> " . $valueInfo['account_id'] . "<br/>";
             echo "  <b>Nickname:</b> " . $valueInfo['nickname'] . "<br/>";
-			echo "  <b>Кредиты :</b> " . $valueInfo['private']['credits'] . "<br/>";
-			echo "  <b>Максимальный урон за бой :</b> " . $valueInfo['statistics']['max_damage'] . "<br/>";
+			echo "  <b>РљСЂРµРґРёС‚С‹ :</b> " . $valueInfo['private']['credits'] . "<br/>";
+			echo "  <b>РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРЅ Р·Р° Р±РѕР№ :</b> " . $valueInfo['statistics']['max_damage'] . "<br/>";
         }
 		/////////////////////
 		
 		}else{
-            exit('access_token не подтвержден');
+            exit('access_token РЅРµ РїРѕРґС‚РІРµСЂР¶РґРµРЅ');
         }
     }
 }else{
@@ -89,6 +89,14 @@ if(empty($_GET['status'])){//генерируем ссылку и перенаправяем пользователя
     if(preg_match('/^[0-9]+$/u', $_GET['code'])){
         $error_code=$_GET['code'];
     }
-    exit("Произошла ошибка. Код ошибки: $error_code");
+    exit("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°. РљРѕРґ РѕС€РёР±РєРё: $error_code");
 }
 ?>
+ <html>
+<head>
+<meta charset="utf-8" />
+    <title>Example</title>
+</head>
+<body>
+</body>
+ </html>
